@@ -12,7 +12,7 @@ class admindatabase
 		 $query = mysql_query($sql);
 		 return $query;
 	 }
-
+     //add khac tuy
 	//////////////////////////Danh muc
 	function addlinkc1()
 	{
