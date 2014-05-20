@@ -1,0 +1,86 @@
+*{ margin: 0px 0px; padding: 0px 0px;}
+body{
+    width: 1000px;
+    margin: 0px auto;
+}
+ul li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+#banner{
+    float: left;
+    height: 20px;
+    background-color:#4e40fd;
+    width: 1000px;
+}
+#content{
+    float: left;;
+    width: 1000px;
+}
+#left{
+    float: left;
+    width: 250px;
+    background: #d2e6f3;
+}
+#left .danhmuc{
+    float:left;
+    width: 250px;
+}
+#left .danhmuc p{
+    float: left;
+    height: 25px;
+    width: 210px;
+    padding-left: 40px;
+    font-family: Arial;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-top: 10px;
+    font-weight: bold;
+}
+#left .danhmuc ul{
+    float: left;
+    width: 250px;
+}
+#left .danhmuc ul li{
+    float: left;
+    margin-left: 40px;
+    height: 17px;
+    padding-left: 30px;
+    width: 180px;
+    color: #327ace;
+    font-size: 12px;
+    padding-top: 5px;
+}
+#left .danhmuc ul li a{
+    color: #327ace;
+}
+#left .danhmuc ul li a:hover{
+    color: #ffffff;
+}
+#right{
+    float: left;
+    width: 750px;
+}
+#ketqua{
+    float: left;
+    width: 700px;
+    margin-left: 40px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #041c0a;
+}
+#ketqua .link{
+    width: 700px;
+    font-size: 13px;
+    margin-top: 5px;
+}
+#ketqua .link h3 a{
+    color: #327ace;
+}
+#ketqua .link h3 a:hover{
+    color:#1acc47;
+}
+
+#footer{float:left; height:20px;with:1000px;}

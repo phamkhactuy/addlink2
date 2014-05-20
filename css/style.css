@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0px 0px; padding:0px 0px;}
+body{ font-size:13px; font-family:Arial, Helvetica, sans-serif;}
+a { text-decoration:none; color:#00C;}
+a:hover{ color:#F00;}
+.clear{ clear:both;}
+#all{ width:902px; margin:10px auto;}
+#all ul li{ list-style:none;}
+#trangthai{ float:right; color:#FFF; font-size:15px; text-transform:none;}
+#trangthai a{ color:#FFF;}
+#trangthai a:hover{ color:#000;}
+
+#banner{width:9s02px; background:url(../images/bg_banner.jpg) repeat; height:38px; text-align:center; text-transform:uppercase; font-weight:bold; font-size:25px; color:#000000; padding-top:6px;}
+#banner a{ color: #90e4ff;}
+#banner a:hover{color: #ff3f3f;}
+#left{ float:left; width:200px;}
+#left ul{ float:left; width:198PX;border-left:1px solid #000; border-right:1px solid #000; }
+#left h3{ float:left; width:198px; background:url(../images/bg_h3_danhmuc.jpg) repeat-x; height:29px; text-align:center; color:#052d64; text-transform:uppercase; padding-top:10px; border:1px solid #03F;}
+#left ul li{ float:left; width:168px; height:25px; padding:12px 0px 0px 30px; background:url(../images/bg_ul_li.jpg) no-repeat;; border-bottom:1px  solid #000;}
+#left ul li a{ color:#1a61c1;}
+#left ul li a:hover{ color:#000;}
+#left ul li a:active{ color:#F00;}
+
+
+#content{ float:left; width:700px; height:400px; }
+#content h1{ width:500px; text-align:center; color:#F00; font-size:20px; margin-top:10px;}
+#content ul li{ float:left; width:700px; height:30px;}
+
+#phantrang { width:697px; margin:5px 20px;}
+#phantrang h6{ font-size:13px; width:697px; }
+#phantrang h6 a{ padding:0px 3px;}

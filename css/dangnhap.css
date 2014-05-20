@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* CSS Document */
+*{margin:0px; padding:0px}
+body{ background:#666;}
+#wrapper{
+	width:400px;
+	margin:auto;
+}
+#box_form{
+	width:100%;
+	background:url(../images/bg_banner.jpg) repeat;
+	margin-top:100px;
+}
+#box_form h2{
+	float:left;
+	width:390px;
+	height:30px;
+	padding-top:5px;
+	padding-left:10px;
+	background:#009;
+	font:tahoma;
+	font-size:15pt;
+	text-transform:uppercase;
+	text-align:center;
+}
+#box_form p{
+	float:left;
+	width:385px;
+	background: #06F;
+	padding:5px 5px 5px 10px;
+}
+#box_form p img{
+	width:20px;
+	height:20px;
+	border:none;
+	vertical-align:top;
+}
+#box_form p a{
+	text-decoration:none;
+	color:#666;
+	font-weight:bold;
+}
+#box_form p a:hover{
+	color:#F09;
+}
+#box_form p a:hover img{
+	border: 1px solid #F09;
+}
+div #form{
+	float:left;
+	width:100%;
+	height:250px;
+	background:url(../images/bg_banner.jpg) repeat;
+}
+
+/*BẢNG ĐĂNG NHẬP*/
+#tbl_login{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:35px;
+}
+#tbl_login td{
+	text-align:center;
+}
+#but_dangnhap, #but_xoatrang{
+	width:90px;
+	height:25px;
+	margin-top:10px;
+}
+#but_dangnhap{
+	margin-right:5px;
+}
