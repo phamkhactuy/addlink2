@@ -20,9 +20,21 @@ class admindatabase
         $query=mysql_query($sql);
         return $query;
     }
+    function categorybyid($category_id)
+    {
+        $sql="SELECT * FROM tuypkcategory where category_id=".$category_id."";
+        $query=mysql_query($sql);
+        return $query;
+    }
     function category1($a)
     {
         $sql="SELECT * FROM tuypkcategory1 where category_id=".$a."";
+        $query=mysql_query($sql);
+        return $query;
+    }
+    function category1byid($a)
+    {
+        $sql="SELECT * FROM tuypkcategory1 where category1_id=".$a."";
         $query=mysql_query($sql);
         return $query;
     }

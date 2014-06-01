@@ -50,7 +50,12 @@ if(isset($_REQUEST['themlink']))
         {
             ?>
             <div class="danhmuc">
-                <p><?php echo $row['category_name'];?></p>
+                <p><?php
+                    ?>
+                    <a href="index.php?category=<?php echo $row['category_id']?>"><?php echo $row['category_name']; ?></a>
+                    <?php
+                    ?>
+                </p>
                 <ul>
                         <?php
                         $a=$row['category_id'];
@@ -59,7 +64,7 @@ if(isset($_REQUEST['themlink']))
                         {
                             ?>
                             <li>
-                                <a href="index.php?tp=<?php echo $row1['category1_id']?>"><?php echo $row1['category1_name']; ?></a>
+                                <a href="index.php?category=<?php echo $row['category_id']?>&tp=<?php echo $row1['category1_id']?>"><?php echo $row1['category1_name']; ?></a>
                             </li>
                             <?php
                         }

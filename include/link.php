@@ -1,11 +1,19 @@
 <?php
+if(isset($_REQUEST['category']))
+{
+    $category=$_REQUEST['category'];
+}
+else
+{
+    $category=1;
+}
 if(isset($_REQUEST['tp']))
 {
     $tp=$_REQUEST['tp'];
 }
 else
 {
-    $tp=1;
+    $tp=0;
 }
 if(isset($_GET['action']))
 {
@@ -18,7 +26,30 @@ if(isset($_GET['action']))
 	}
 }
 ?>
-<h1>Danh mục link</h1>
+<h1>
+    <?php
+        $category=$db->categorybyid($category);
+        if(mysql_num_rows($category)!=0)
+        {
+            while($row_category=mysql_fetch_array($category))
+            {
+                echo $row_category['category_name'];
+            }
+        }
+        if($tp!=0)
+        {
+            echo ">";
+            $category1=$db->category1byid($tp);
+            if(mysql_num_rows($category1)!=0)
+            {
+                while($row_category1=mysql_fetch_array($category1))
+                {
+                    echo $row_category1['category1_name'];
+                }
+            }
+        }
+    ?>
+</h1>
 <form action="index.php" name="themlink" method="post">
     <?php
     $id_last=$db->id_last();
