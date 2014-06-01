@@ -12,7 +12,32 @@ class admindatabase
 		 $query = mysql_query($sql);
 		 return $query;
 	 }
-     //add khac tuy
+
+    //add khac tuy
+    function category()
+    {
+        $sql="SELECT * FROM tuypkcategory ORDER BY category_id";
+        $query=mysql_query($sql);
+        return $query;
+    }
+    function category1($a)
+    {
+        $sql="SELECT * FROM tuypkcategory1 where category_id=".$a."";
+        $query=mysql_query($sql);
+        return $query;
+    }
+    function id_last()
+    {
+        $sql="SELECT * FROM tuypklink ORDER BY link_id DESC LIMIT 0,1";
+        $query=mysql_query($sql);
+        return $query;      
+    }
+    function get_link($tp)
+    {
+        $sql="SELECT * FROM tuypklink WHERE category1_id=$tp GROUP BY link_id DESC";
+        $query=mysql_query($sql);
+        return $query;
+    }
 	//////////////////////////Danh muc
 	function addlinkc1()
 	{

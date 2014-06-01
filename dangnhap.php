@@ -42,9 +42,9 @@
 		include('include/admindatabase.php');
 		$db = new admindatabase();
 		$SQL = "SELECT * 
-				FROM addlinkuser
-				WHERE user =  '".$tk."'
-				AND pass =  '".$mk."'
+				FROM tuypkuser
+				WHERE user_username =  '".$tk."'
+				AND user_pass =  '".$mk."'
 				LIMIT 0 , 30";
 		
 		$dn = $db->fetch_all($SQL);

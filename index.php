@@ -45,21 +45,21 @@ if(isset($_REQUEST['themlink']))
 <div id="content">
     <div id="left">
         <?php
-        $addlinkc1=$db->addlinkc1();
-        while($row=mysql_fetch_array($addlinkc1))
+        $category=$db->category();
+        while($row=mysql_fetch_array($category))
         {
             ?>
             <div class="danhmuc">
-                <p><?php echo $row['name'];?></p>
+                <p><?php echo $row['category_name'];?></p>
                 <ul>
                         <?php
-                        $a=$row['id'];
-                        $addlinkc2=$db->addlinkc2($a);
-                        while($row1=mysql_fetch_array($addlinkc2))
+                        $a=$row['category_id'];
+                        $category1=$db->category1($a);
+                        while($row1=mysql_fetch_array($category1))
                         {
                             ?>
                             <li>
-                                <a href="index.php?tp=<?php echo $row1['id']?>"><?php echo $row1['name']; ?></a>
+                                <a href="index.php?tp=<?php echo $row1['category1_id']?>"><?php echo $row1['category1_name']; ?></a>
                             </li>
                             <?php
                         }
