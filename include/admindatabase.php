@@ -4,7 +4,7 @@ class admindatabase
 	function admindatabase()
 	{
 		$db=mysql_connect("localhost","root","");
-		mysql_select_db("addlink",$db);
+		mysql_select_db("addlink2",$db);
 		mysql_query("SET NAMES UTF8",$db);
 	}
 		function fetch_all($sql)
@@ -44,9 +44,9 @@ class admindatabase
         $query=mysql_query($sql);
         return $query;      
     }
-    function get_link($tp)
+    function get_link($category1)
     {
-        $sql="SELECT * FROM tuypklink WHERE category1_id=$tp GROUP BY link_id DESC";
+        $sql="SELECT * FROM tuypklink WHERE category1_id=".$category1." GROUP BY link_id DESC";
         $query=mysql_query($sql);
         return $query;
     }

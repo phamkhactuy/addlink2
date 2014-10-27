@@ -4,9 +4,10 @@ if(!isset($_SESSION['admin']))
 echo "<script language='javascript' type='text/javascript'>window.location = 'dangnhap.php';</script>";
 include('include/admindatabase.php');
 $db=new admindatabase();
-if(isset($_GET['tp']))
-$tp=$_GET['tp'];
-else $tp=1;
+if(isset($_GET['category1']))
+$category1=$_GET['category1'];
+else $category1=1;
+//
 if(isset($_GET['ts']))
     $ts=$_GET['ts'];
 else $ts=1;
@@ -64,7 +65,7 @@ if(isset($_REQUEST['themlink']))
                         {
                             ?>
                             <li>
-                                <a href="index.php?category=<?php echo $row['category_id']?>&tp=<?php echo $row1['category1_id']?>"><?php echo $row1['category1_name']; ?></a>
+                                <a href="index.php?category=<?php echo $row['category_id']?>&category1=<?php echo $row1['category1_id']?>"><?php echo $row1['category1_name']; ?></a>
                             </li>
                             <?php
                         }
@@ -85,6 +86,7 @@ if(isset($_REQUEST['themlink']))
             <?php
             switch($ts)
             {
+                case '1':include('include/echo1.php');break;
                 case 'dangxuat':include('include/dangxuat.php');break;
                 //danh muc
                 //case 'link': include('include/link.php'); break;
