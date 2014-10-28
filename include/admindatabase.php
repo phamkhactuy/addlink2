@@ -4,7 +4,7 @@ class admindatabase
 	function admindatabase()
 	{
 		$db=mysql_connect("localhost","root","");
-		mysql_select_db("addlink",$db);
+		mysql_select_db("addlink2",$db);
 		mysql_query("SET NAMES UTF8",$db);
 	}
 		function fetch_all($sql)
@@ -44,12 +44,20 @@ class admindatabase
         $query=mysql_query($sql);
         return $query;      
     }
-    function get_link($tp)
+    function get_link($category1)
     {
-        $sql="SELECT * FROM tuypklink WHERE category1_id=$tp GROUP BY link_id DESC";
+        $sql="SELECT * FROM tuypklink WHERE category1_id=".$category1." GROUP BY link_id DESC";
         $query=mysql_query($sql);
         return $query;
     }
+
+    function insert_link($idlink,$urllink,$titlelink,$category1id,$categoryid)
+    {
+        $sql="INSERT INTO tuypklink(link_id,link_url,link_title,category1_id,category_id) VALUES (".$idlink.", '".$urllink."', '".$titlelink."',".$category1id.",".$categoryid." )";
+        $query=mysql_query($sql);
+        return $query;
+    }
+
 	//////////////////////////Danh muc
 	function addlinkc1()
 	{
@@ -78,12 +86,24 @@ class admindatabase
     }
 
     function getTitle($Url){
-        $str = file_get_contents($Url);
+        /*$str = file_get_contents($Url);
         if(strlen($str)>0){
             preg_match("/\<title\>(.*)\<\/title\>/",$str,$title);
             return $title[1];
-        }
+        }*/
+        $abc="TUY";
+        return $abc;
     }
+    function getTitle1($url){
+
+    if( !($data = file_get_contents($url)) ) return false;
+
+    if( preg_match("#(.+)<\/title>#iU", $data, $t))  {
+        return trim($t[1]);
+    } else {
+        return false;
+    }
+}
 
 	function linkcuoi()
 	{
