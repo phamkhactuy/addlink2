@@ -5,6 +5,7 @@ echo "<script language='javascript' type='text/javascript'>window.location = 'da
 include('include/admindatabase.php');
 $db=new admindatabase();
 if(isset($_GET['category1']))
+<<<<<<< HEAD
     $category1=$_GET['category1'];
 else $category1=1;
 
@@ -17,6 +18,11 @@ else
     $category=1;
 }
 
+=======
+$category1=$_GET['category1'];
+else $category1=1;
+//
+>>>>>>> origin/master
 if(isset($_GET['ts']))
     $ts=$_GET['ts'];
 else $ts=1;
