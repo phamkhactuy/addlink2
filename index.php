@@ -4,6 +4,7 @@ if(!isset($_SESSION['admin']))
 echo "<script language='javascript' type='text/javascript'>window.location = 'dangnhap.php';</script>";
 include('include/admindatabase.php');
 $db=new admindatabase();
+<<<<<<< HEAD
 
 if(isset($_GET['cate1']))
     $cate1=$_GET['cate1'];
@@ -14,15 +15,48 @@ if(isset($_GET['ts']))
 else $ts=1;
 
 
+=======
+if(isset($_GET['category1']))
+<<<<<<< HEAD
+    $category1=$_GET['category1'];
+else $category1=1;
+
+if(isset($_REQUEST['category']))
+{
+    $category=$_REQUEST['category'];
+}
+else
+{
+    $category=1;
+}
+
+=======
+$category1=$_GET['category1'];
+else $category1=1;
+//
+>>>>>>> origin/master
+if(isset($_GET['ts']))
+    $ts=$_GET['ts'];
+else $ts=1;
+//
+>>>>>>> origin/master
 if(isset($_REQUEST['themlink']))
 {
-    $malink=$_REQUEST['malink'];
+    $idlink=$_REQUEST['idlink'];
     $link=$_REQUEST['link'];
+<<<<<<< HEAD
     $title=$db->pageTitle($link);
     $name_cate1=$_REQUEST['name_cate1'];
     $name_cate=$_REQUEST['name_cate'];
     $db->themlink($malink,$link,$title,$name_cate1);
     echo "<script>location.href='index.php?cate1=".$name_cate."&cate1=".$name_cate1."'</script>"	;
+=======
+    $titlelink=$db->getTitle($link);
+    $category1id=$category1;
+    $categoryid=$category;
+    $db->insert_link($idlink,$link,$titlelink,$category1id,$categoryid);
+    //echo "<script>location.href='index.php?category=".$categoryid."&category1=".$category1id."'</script>"	;
+>>>>>>> origin/master
 }
 
 ?>
@@ -50,21 +84,30 @@ if(isset($_REQUEST['themlink']))
 <div id="content">
     <div id="left">
         <?php
-        $category=$db->category();
-        while($row=mysql_fetch_array($category))
+        $category_dm=$db->category();
+        while($row=mysql_fetch_array($category_dm))
         {
             ?>
             <div class="danhmuc">
-                <p><?php echo $row['category_name'];?></p>
+                <p><?php
+                    ?>
+                    <a href="index.php?category=<?php echo $row['category_id']?>"><?php echo $row['category_name']; ?></a>
+                    <?php
+                    ?>
+                </p>
                 <ul>
                         <?php
                         $a=$row['category_id'];
-                        $category1=$db->category1($a);
-                        while($row1=mysql_fetch_array($category1))
+                        $category1_dm=$db->category1($a);
+                        while($row1=mysql_fetch_array($category1_dm))
                         {
                             ?>
                             <li>
+<<<<<<< HEAD
                                 <a href="index.php?cate=<?php echo $row['category_id']?>&cate1=<?php echo $row1['category1_id']?>"><?php echo $row1['category1_name']; ?></a>
+=======
+                                <a href="index.php?category=<?php echo $row['category_id']?>&category1=<?php echo $row1['category1_id']?>"><?php echo $row1['category1_name']; ?></a>
+>>>>>>> origin/master
                             </li>
                             <?php
                         }
@@ -77,21 +120,22 @@ if(isset($_REQUEST['themlink']))
 
     </div>
     <div id="right">
-        <div id="themmoi">
-
+        <div id="themmoi1">
         </div>
         <div id="ketqua">
 
-            <?php
+            <?php           
+            include('include/link.php');
             switch($ts)
             {
+                case '1':include('include/echo1.php');break;
                 case 'dangxuat':include('include/dangxuat.php');break;
                 //danh muc
                 //case 'link': include('include/link.php'); break;
-                case 'sualink':include('include/sualink.php');break;
-                case 'themmoilink':include('include/themmoilink.php');break;
+                //case 'sualink':include('include/sualink.php');break;
+                //case 'themmoilink':include('include/themmoilink.php');break;
             }
-            include('include/link.php');
+            
             ?>
         </div>
     </div>

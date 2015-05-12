@@ -20,12 +20,19 @@ class admindatabase
         $query=mysql_query($sql);
         return $query;
     }
+    function categorybyid($category_id)
+    {
+        $sql="SELECT * FROM tuypkcategory where category_id=".$category_id."";
+        $query=mysql_query($sql);
+        return $query;
+    }
     function category1($a)
     {
         $sql="SELECT * FROM tuypkcategory1 where category_id= ".$a." ORDER BY category1_orderby";
         $query=mysql_query($sql);
         return $query;
     }
+<<<<<<< HEAD
     function categorybyid($cate)
     {
         $sql="SELECT * FROM tuypkcategory where category_id= ".$cate." LIMIT 0 , 1";
@@ -39,18 +46,34 @@ class admindatabase
         return $query;
     }
 
+=======
+    function category1byid($a)
+    {
+        $sql="SELECT * FROM tuypkcategory1 where category1_id=".$a."";
+        $query=mysql_query($sql);
+        return $query;
+    }
+>>>>>>> origin/master
     function id_last()
     {
         $sql="SELECT * FROM tuypklink ORDER BY link_id DESC LIMIT 0,1";
         $query=mysql_query($sql);
         return $query;      
     }
-    function get_link($tp)
+    function get_link($category1)
     {
-        $sql="SELECT * FROM tuypklink WHERE category1_id=$tp GROUP BY link_id DESC";
+        $sql="SELECT * FROM tuypklink WHERE category1_id=".$category1." GROUP BY link_id DESC";
         $query=mysql_query($sql);
         return $query;
     }
+
+    function insert_link($idlink,$urllink,$titlelink,$category1id,$categoryid)
+    {
+        $sql="INSERT INTO tuypklink(link_id,link_url,link_title,category1_id,category_id) VALUES (".$idlink.", '".$urllink."', '".$titlelink."',".$category1id.",".$categoryid." )";
+        $query=mysql_query($sql);
+        return $query;
+    }
+
 	//////////////////////////Danh muc
 	function addlinkc1()
 	{
@@ -79,12 +102,15 @@ class admindatabase
     }
 
     function getTitle($Url){
-        $str = file_get_contents($Url);
+        /*$str = file_get_contents($Url);
         if(strlen($str)>0){
             preg_match("/\<title\>(.*)\<\/title\>/",$str,$title);
             return $title[1];
-        }
+        }*/
+        $abc="TUY";
+        return $abc;
     }
+<<<<<<< HEAD
     function pageTitle($page_url)
     {
          $read_page=file_get_contents($page_url);
@@ -103,6 +129,19 @@ class admindatabase
                 return $page_url;
           }
     }
+=======
+    function getTitle1($url){
+
+    if( !($data = file_get_contents($url)) ) return false;
+
+    if( preg_match("#(.+)<\/title>#iU", $data, $t))  {
+        return trim($t[1]);
+    } else {
+        return false;
+    }
+}
+
+>>>>>>> origin/master
 	function linkcuoi()
 	{
 		$sql="SELECT * FROM addlinkc ORDER BY id DESC LIMIT 0,1";
