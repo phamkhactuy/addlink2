@@ -4,20 +4,25 @@ if(!isset($_SESSION['admin']))
 echo "<script language='javascript' type='text/javascript'>window.location = 'dangnhap.php';</script>";
 include('include/admindatabase.php');
 $db=new admindatabase();
-if(isset($_GET['tp']))
-$tp=$_GET['tp'];
-else $tp=1;
+
+if(isset($_GET['cate1']))
+    $cate1=$_GET['cate1'];
+else $cate1=1;
+
 if(isset($_GET['ts']))
     $ts=$_GET['ts'];
 else $ts=1;
+
+
 if(isset($_REQUEST['themlink']))
 {
     $malink=$_REQUEST['malink'];
     $link=$_REQUEST['link'];
-    $demo=$db->getTitle($link);
-    $c2=$_REQUEST['c2'];
-    $db->themlink($malink,$link,$demo,$c2);
-    echo "<script>location.href='index.php?tp=".$c2."'</script>"	;
+    $title=$db->pageTitle($link);
+    $name_cate1=$_REQUEST['name_cate1'];
+    $name_cate=$_REQUEST['name_cate'];
+    $db->themlink($malink,$link,$title,$name_cate1);
+    echo "<script>location.href='index.php?cate1=".$name_cate."&cate1=".$name_cate1."'</script>"	;
 }
 
 ?>
@@ -59,7 +64,7 @@ if(isset($_REQUEST['themlink']))
                         {
                             ?>
                             <li>
-                                <a href="index.php?tp=<?php echo $row1['category1_id']?>"><?php echo $row1['category1_name']; ?></a>
+                                <a href="index.php?cate=<?php echo $row['category_id']?>&cate1=<?php echo $row1['category1_id']?>"><?php echo $row1['category1_name']; ?></a>
                             </li>
                             <?php
                         }

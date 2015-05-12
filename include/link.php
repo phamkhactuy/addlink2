@@ -1,24 +1,36 @@
 <?php
-if(isset($_REQUEST['tp']))
+if(isset($_REQUEST['cate']))
 {
-    $tp=$_REQUEST['tp'];
+    $cate=$_REQUEST['cate'];
 }
 else
 {
-    $tp=1;
+    $cate=1;
+}
+
+if(isset($_REQUEST['cate1']))
+{
+    $cate1=$_REQUEST['cate1'];
+}
+else
+{
+    $cate1=1;
 }
 if(isset($_GET['action']))
 {
     $action=$_GET['action'];
     $idlink=$_REQUEST['idlink'];
+    $xoacate=$_REQUEST['cate'];
+    $xoacate1=$_REQUEST['cate1'];
 	if($action==0)
 	{
         $db->xoalink($idlink);
-        echo "<script>location.href='index.php?tp=".$tp."'</script>"	;
+        echo "<script>location.href='index.php?cate=".$xoacate."&cate1=".$xoacate1."'</script>"	;
 	}
 }
 ?>
-<h1>Danh mục link</h1>
+<h4><?php include('include/categoryview.php'); ?></h4>
+
 <form action="index.php" name="themlink" method="post">
     <?php
     $id_last=$db->id_last();
@@ -28,33 +40,33 @@ if(isset($_GET['action']))
     {
 
     ?>
-    <h5>Mã: <input style="width:35px; border:hidden; text-align:center;" type="text" name="malink" value="<?php echo $row['link_id']+1; ?>" /></h5>
+    <input style="width:35px; border:hidden; text-align:center;" type="hidden" name="malink" value="<?php echo $row['link_id']+1; ?>" />
     <?php
     }
     }
     else
     {
         ?>
-        <h5>Mã: <input style="width:35px; border:hidden; text-align:center;" type="text" name="malink" value="1" /></h5>
+        <input style="width:35px; border:hidden; text-align:center;" type="hidden" name="malink" value="1" />
         <?php
     }
     ?>
-    <h5>Link: <input type="text" style="width:400px;" name="link" value="" /></h5>
-    <input type="hidden"  name="c2" value="<?php echo $tp;?>" />
-    <input type="submit" name="themlink" value="Lưu" />
-
+    <h5><input type="text" style="width:400px;" name="link" value="" />
+    <input type="hidden"  name="name_cate1" value="<?php echo $cate1;?>" />
+    <input type="hidden"  name="name_cate" value="<?php echo $cate1?>" />
+    <input type="submit" name="themlink" value="Lưu" /></h5>
 <?php
 
-    $link=$db->get_link($tp);
-    while($row2=mysql_fetch_array($link))
+    $link=$db->get_link($cate1);
+    while($row_link=mysql_fetch_array($link))
     {
 ?>
         <div class="link">
-            <h3><?php echo $row2['link_id'];?>-::-<a href="<?php echo $row2['link_url'];?>"><?php echo $row2['link_title'];?></a></h3>
-<h5><a href="<?php echo $row2['link_url'];?>"><?php echo $row2['link_url'];?></a></h5>
+            <h3><?php echo $row_link['link_id'];?>-:-<a href="<?php echo $row_link['link_url'];?>"><?php echo $row_link['link_title'];?></a></h3>
+<h5><a href="<?php echo $row_link['link_url'];?>"><?php echo $row_link['link_url'];?></a></h5>
 
 
-            <a href="index.php?tp=<?php echo $tp;?>&action=0&idlink=<?php echo $row2['link_id'];?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
+            <a href="index.php?cate=<?php echo $cate;?>&cate1=<?php echo $cate1;?>&action=0&idlink=<?php echo $row_link['link_id'];?>" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
         </div>
 <?php
     }
